@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<br><br><br>
+     <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="box-element">
+                    <div class="card card-body h-100 border-info" >
+                    <h4>{{post.title}}</h4>
+                    <small>{{post.created_on}}</small>
+                    <hr>
+                    <p>{{post.content}}</p>
+
+                    <br>
+                    <a href="{% url 'home' %}" class="btn btn-outline-success "> Back</a>
+                    <br>
+                    {% if user.is_authenticatd %}
+                    <a href="{% url 'update' post.pk %}" class="btn btn-outline-danger"> Update</a>
+                      
+                    {% endif %}
+                    
+                    
+                
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        
+</div>
+
+{% endblock content %}

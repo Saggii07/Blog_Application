@@ -1,0 +1,48 @@
+
+{% extends "base.html" %}
+{% block content %}
+<br><br><br>
+
+     <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                {% if user.is_authenticated %}
+                  <a href="{% url 'addblog'  %}" class="btn btn-primary btn-lg">Add Blog</a>
+                {% endif %}
+                
+                <br><br>
+                {% for post in post_list %}
+                <div class="box-element">
+                    
+                    <div class="card card-body h-100 border-info" >
+                    
+                        
+                        <ul>
+                            <li>
+                                <h4>{{post.title}}</h4>
+                                <small>{{post.created_on}}</small>
+                                <p>{{post.content|slice:":50"}}....</p>
+                                <a href="{% url 'detail' post.pk %}" class="btn btn-outline-primary">read more..</a>
+                                
+                                {% if user.is_authenticated %}
+                                 <a href="{% url 'delete' post.pk %}" class="btn btn-outline-danger">Delete</a>
+                                  
+                                {% endif %}
+                                
+                                
+                                
+                            </li>
+                        </ul>
+
+                        
+
+                </div>
+                
+                <br>
+            </div>
+            {% endfor %}
+
+        </div>
+        
+</div>
+{% endblock content %}

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %} Add blog {% endblock %}
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 card mb-4  mt-3 left  top">
+      <div class="card-body">
+        <h4>Add Post...</h4>
+        <br><br>
+        <h3></h3>
+        <br/>
+        <div class="form-group">
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{form.as_p}}
+                <button class="btn btn-primary"> POST</button>
+            </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>  
+{% endblock content %}

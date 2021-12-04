@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+  <br><br>
+  <div class="container">
+  <div class="row">
+    <div class="col-md-8 card mb-4  mt-3 left  top">
+      <div class="card-body">
+        <h4>delete POST</h4>
+        <br><br>
+        <h3>Delete : {{post.title}}</h3>
+        <br/>
+        <div class="form-group">
+            <form action="" method="POST">
+                {% csrf_token %}
+                <strong>Are you sure ? !</strong><br><br>
+                <button class="btn btn-primary"> Delete</button>
+            </form>
+
+        </div>
+      </div>
+      <a href="{% url 'home' %}" class="btn btn-secondary">Back</a>
+    </div>
+  </div>
+</div>
+  
+{% endblock content %}
